@@ -8,7 +8,8 @@ import csv
 import os
 import time
 from selenium import webdriver 
-from selenium.webdriver.common.by import By # This needs to be used 
+from selenium.webdriver.common.by import By # This needs to be used
+#Pritam 
 
 application = Flask(__name__) # initializing a flask app
 app=application
@@ -90,8 +91,8 @@ def index():
                 writer.writerows(reviews)
 
                
-            client = pymongo.MongoClient("mongodb+srv://master:master123@atlascluster.w0iwrbk.mongodb.net/?retryWrites=true&w=majority")
-            db = client['flipkart_scrap1']
+            client = pymongo.MongoClient("mongodb+srv://pritam:pritam@cluster0.nanzphi.mongodb.net/?retryWrites=true&w=majority")
+            db = client['flipkart_scrap']
             review_col = db['review_scrap_data']
             review_col.insert_many(reviews)
             return render_template('results.html', reviews=reviews[0:(len(reviews)-1)])
